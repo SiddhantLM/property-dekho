@@ -32,7 +32,7 @@ app.use(
         callback(new Error("Not allowed by CORS"));
       }
     },
-    credentials: true, // Allow cookies and authentication headers
+    credentials: false, // Allow cookies and authentication headers
   })
 );
 
