@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Landing from "./pages/Landing";
+import HomePage from "./pages/Listing";
+// import MapPage from "./pages/MapPage";
+import { Toaster } from "react-hot-toast";
+import Mapping from "./pages/Mapping";
+import Admin from "./pages/Admin";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/user" element={<HomePage />} />
+        <Route path="/user/map" element={<Mapping />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
+      </Routes>
+      <Toaster position="top-right" />
+    </>
   );
 }
 
