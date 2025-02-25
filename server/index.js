@@ -25,14 +25,13 @@ const allowedOrigins = [
 ];
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: false, // Allow cookies and authentication headers
+    origin: [
+      "http://localhost:3000",
+      "https://property-dekho.vercel.app",
+      "https://property-dekho-siddhant-phulwanis-projects.vercel.app/",
+      "https://property-dekho-git-main-siddhant-phulwanis-projects.vercel.app/",
+    ],
+    credentials: true, // Allow cookies and authentication headers
   })
 );
 
