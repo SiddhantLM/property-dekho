@@ -36,11 +36,8 @@ const AddProperty = ({ handleClose, setData }) => {
       formData.append("lat", coordinates.lat);
       formData.append("lon", coordinates.lng);
       formData.append("propertyImage", propertyImage);
-      const response = await axios.post(
-        "http://localhost:4000/api/property/add",
-        formData,
-        config
-      );
+      const url = process.env.REACT_APP_BASE_URL + "/api/property/add";
+      const response = await axios.post(url, formData, config);
 
       if (!response) {
         throw new Error("couldn't add property");

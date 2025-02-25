@@ -50,9 +50,8 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:4000/api/property/all"
-        );
+        const url = process.env.REACT_APP_BASE_URL + "/api/property/all";
+        const response = await axios.get(url);
         console.log(response);
         setData(response.data.properties);
         toast.success("data fetched successfully");

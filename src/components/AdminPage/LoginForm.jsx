@@ -15,11 +15,8 @@ const LoginForm = () => {
         email,
         password,
       };
-
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/login",
-        data
-      );
+      const url = process.env.REACT_APP_BASE_URL + "/api/auth/login";
+      const response = await axios.post(url, data);
 
       if (!response) {
         throw new Error("Failed to login");

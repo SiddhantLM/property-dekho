@@ -14,11 +14,8 @@ const Card = ({ data, handleDetails, page = "user", setData }) => {
         },
       };
       const id = data._id;
-      const response = await axios.post(
-        "http://localhost:4000/api/property/delete",
-        { id },
-        config
-      );
+      const url = process.env.REACT_APP_BASE_URL + "/api/property/delete";
+      const response = await axios.post(url, { id }, config);
       console.log("Property deleted successfully");
       setData(response.data.property);
       toast.success("Property deleted successfully");
